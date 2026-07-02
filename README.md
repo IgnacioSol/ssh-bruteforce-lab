@@ -45,7 +45,8 @@ ssh-bruteforce-lab/
 ## How to Run
 
 Setup and attack steps are documented in [`recon/nmap-scan.md`](recon/nmap-scan.md) and
-[`attack/hydra-attack.md`](attack/hydra-attack.md).
+[`attack/hydra-attack.md`](attack/hydra-attack.md). A full reference of every command
+used across all phases, with descriptions, is in [`COMMANDS.md`](COMMANDS.md).
 
 ## Report
 
