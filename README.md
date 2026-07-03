@@ -3,6 +3,10 @@
 A hands-on lab simulating an SSH brute-force attack against a Linux target, followed by basic
 persistence and a full SOC-style investigation of the intrusion using log analysis.
 
+## Network Diagram
+
+![Network diagram: MacBook Air attacker at 192.168.64.1 versus Ubuntu VM target at 192.168.64.8 on a shared UTM network, showing recon, brute-force, and persistence steps](assets/network-diagram.svg)
+
 ## Scenario
 
 **Attacker:** macOS host (nmap, hydra via Homebrew)
@@ -37,7 +41,10 @@ ssh-bruteforce-lab/
 │   └── backdoor-notes.md       # Post-exploitation persistence
 ├── investigation/
 │   ├── auth-log-analysis.md    # Manual timeline reconstruction
-│   └── detect_bruteforce.py    # Automated detection script
+│   ├── detect_bruteforce.py    # Automated detection script
+│   └── sample-ssh-auth.log     # Real captured log lines used to test the script
+├── assets/
+│   └── network-diagram.svg     # Attacker/target network diagram
 └── report/
     └── incident-report.md      # Full incident report
 ```

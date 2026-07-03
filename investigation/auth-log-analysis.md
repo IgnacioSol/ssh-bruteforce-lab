@@ -125,6 +125,40 @@ All times below are as logged by the target's own clock at the time (see clock-s
 | *(clock corrected)* | ignacio | `sudo hwclock --hctosys` — system clock resynced to RTC |
 | `Jul 02 21:19:21` onward | root (via cron) | Beacon cron job continues firing every minute, uninterrupted |
 
+## Automated Detection Script
+
+[`detect_bruteforce.py`](detect_bruteforce.py) automates Steps 1–2 above: it reads
+`journalctl`/`auth.log`-style SSH lines and flags (a) bursts of failed logins from the
+same user+IP within a time window, and (b) successful logins that follow shortly after
+a flagged burst.
+
+```bash
+journalctl -u ssh | ./detect_bruteforce.py
+# or, against a saved log file:
+./detect_bruteforce.py sample-ssh-auth.log
+```
+
+Run against [`sample-ssh-auth.log`](sample-ssh-auth.log) — the real captured lines from
+this incident — it correctly flags both the brute-force burst and a resulting
+compromise:
+
+```
+Analyzed 14 SSH auth events — 2 finding(s):
+
+[BRUTE FORCE] 5 failed logins for 'testuser' from 192.168.64.1 between 2026-06-25 03:09:34 and 2026-06-25 03:09:34
+[COMPROMISE]  'testuser' from 192.168.64.1 logged in successfully at 2026-06-25 03:16:38, following 11 recent failed attempt(s) — credentials likely compromised
+```
+
+**Known limitation, found by testing against real data:** the script does *not* flag
+the actual initial brute-force success at `03:09:32` as a compromise. That login
+timestamps *before* most of its own attack's failed attempts (see Step 2's finding on
+Hydra's parallel-task race), so at the moment the script processes it, no recent
+failures exist yet to correlate against. It only catches the later `03:16:38` login
+because enough failures had accumulated in the log by then. This is a real gap in
+simple sequential temporal correlation — a production detector would need to correlate
+by connection/session rather than by "N failures immediately before a success," since
+concurrent connection attempts don't log in a guaranteed causal order.
+
 ## Clock Skew — Impact on This Timeline
 
 See [`../persistence/backdoor-notes.md`](../persistence/backdoor-notes.md) for the full

@@ -1,0 +1,14 @@
+Jun 25 01:56:52 ignaciolinux sshd-session[2020]: Accepted password for ignacio from 192.168.64.1 port 51386 ssh2
+Jun 25 03:09:32 ignaciolinux sshd-session[2876]: Accepted password for testuser from 192.168.64.1 port 56499 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2878]: Failed password for testuser from 192.168.64.1 port 56500 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2875]: Failed password for testuser from 192.168.64.1 port 56498 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2858]: Failed password for testuser from 192.168.64.1 port 56491 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2859]: Failed password for testuser from 192.168.64.1 port 56489 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2870]: Failed password for testuser from 192.168.64.1 port 56496 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2860]: Failed password for testuser from 192.168.64.1 port 56493 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2872]: Failed password for testuser from 192.168.64.1 port 56497 ssh2
+Jun 25 03:09:34 ignaciolinux sshd-session[2869]: Failed password for testuser from 192.168.64.1 port 56492 ssh2
+Jun 25 03:09:35 ignaciolinux sshd-session[2866]: Failed password for testuser from 192.168.64.1 port 56495 ssh2
+Jun 25 03:09:35 ignaciolinux sshd-session[2863]: Failed password for testuser from 192.168.64.1 port 56490 ssh2
+Jun 25 03:09:35 ignaciolinux sshd-session[2864]: Failed password for testuser from 192.168.64.1 port 56494 ssh2
+Jun 25 03:16:38 ignaciolinux sshd-session[3090]: Accepted password for testuser from 192.168.64.1 port 56529 ssh2
