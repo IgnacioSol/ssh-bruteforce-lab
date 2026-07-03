@@ -41,7 +41,7 @@ ssh-bruteforce-lab/
 │   └── backdoor-notes.md       # Post-exploitation persistence
 ├── investigation/
 │   ├── auth-log-analysis.md    # Manual timeline reconstruction
-│   ├── detect_bruteforce.py    # Automated detection script
+│   ├── detect_bruteforce.py    # Automated detection script (WIP)
 │   └── sample-ssh-auth.log     # Real captured log lines used to test the script
 ├── assets/
 │   └── network-diagram.svg     # Attacker/target network diagram

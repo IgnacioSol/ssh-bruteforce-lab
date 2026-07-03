@@ -58,7 +58,6 @@ not part of the attack itself) are marked accordingly.
 | `sudo journalctl -u ssh \| grep "Accepted password"` | Find the successful login(s) following the failed attempts |
 | `sudo journalctl \| grep -iE "useradd\|usermod\|sysupdate"` | Find evidence of the backdoor account creation and the privilege escalation that enabled it — critically, shows *which account* (`testuser`, not the admin) ran each privileged command |
 | `sudo journalctl \| grep -iE "cron.d/system-check\|CRON\[.*root"` | Find both the creation of the cron persistence file and proof it actually fired repeatedly and unattended |
-| `journalctl -u ssh \| ./detect_bruteforce.py` | Run the automated Python detector against live SSH logs — flags brute-force bursts and follow-on compromise (see `investigation/detect_bruteforce.py`) |
 
 ## Notes
 
