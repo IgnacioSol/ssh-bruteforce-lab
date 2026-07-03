@@ -127,9 +127,21 @@ All times below are as logged by the target's own clock at the time (see clock-s
 
 ## Automated Detection Script
 
-_Pending: `detect_bruteforce.py`, a script to automate Steps 1–2 above, built and
-tested against [`sample-ssh-auth.log`](sample-ssh-auth.log) (the real captured lines
-from this incident)._
+[`detect_bruteforce.py`](detect_bruteforce.py) automates Steps 1–2 above: it reads
+[`sample-ssh-auth.log`](sample-ssh-auth.log) (the real captured lines from this
+incident), filters SSH failed-login lines, extracts the user and source IP from each,
+tallies attempts per user+IP pair in a dictionary, and flags any pair with more than
+5 failed attempts.
+
+```bash
+python3 detect_bruteforce.py
+```
+
+Against this incident's data, it correctly flags the brute-force account:
+
+```
+POSIBLE FUERZA BRUTA testuser 192.168.64.1 11
+```
 
 ## Clock Skew — Impact on This Timeline
 
